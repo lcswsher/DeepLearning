@@ -20,6 +20,7 @@ A historical csv file (charity_data.csv), containing more that 34k organizations
 
 - #### Compiling, Training, and Evaluating the Model
 
-<img src="Images/AlphabetSoupCharity_Accuracy_Score.PNG" height="50">
+<img src="images/AlphabetSoupCharity_Accuracy_Score.PNG" height="50">
 
-<img src="Images/AlphabetSoupCharity_Accuracy_Chart.PNG" height="250">
+<img src="images/AlphabetSoupCharity_Accuracy_Chart.PNG" height="250">
+
