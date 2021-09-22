@@ -4,126 +4,62 @@
 
 ### Overview
 
-The purpose of this exercise is to set up and create an algorithm via a neural network model used for predicting if applicants will be successful or not if funded by Alphabet Soup.   
+The purpose of this exercise was to create and configure a neural network algorithm model used for predicting whether applicants will be successful (or not) if funded by Alphabet Soup.  The tensor flow module was used to create, train and score the model; also, this is a classification type of problem.    
 
-A historical csv file (charity_data.csv), containing more that 34k organizations receiving funding from Alphabet Soup, was used for compiling the neural network model.  
+The historical csv file (charity_data.csv) containing 34k organizations which have previously received funding from Alphabet Soup, was used for compiling the neural network model.   
 
 ### Results
 
 - #### Data Processing
 
-  - The primary target in this model is to predict if the applicants will be successful if funded by Alphabet Soup.   As such, the target column is "IS_SUCCESSFUL"  and contains the "yes "or "no" metadata we wish to predict.   
-  - The features in this model are essentially all other columns with the exception of "IS_SUCCESSFUL", "EIN" and "NAME"
-  - The "EIN" and "NAME" columns in the charity_data.csv file were considered as irrelevant and are neither targets for features.  Consequently,  both were removed from the neural network model configuration.     
+  - The primary target in this model is to predict if the applicants will be successful if funded by Alphabet Soup.   As such, the target column is "IS_SUCCESSFUL", as it contains the "1" or "0" metadata we wish to predict.   
+  - The features in this model are essentially all of the other columns with the exception of "IS_SUCCESSFUL", "EIN" and "NAME"
+  - The "EIN" and "NAME" columns in the charity_data.csv file were considered as irrelevant and are neither targets or features.  Consequently,  both were removed from the neural network model configuration.     
 
-  
+
 
 - #### Compiling, Training, and Evaluating the Model
 
-<img src="Images/AlphabetSoupCharity_Accuracy_Score.PNG" height="50">
+  - The original attempt at running the model uses two hidden layers using the "relu" activation function.  The hidden layers have 10 neurons  each, and the  output layer is sigmoid.   An accuracy score of ~72.8% was achieved which is below the higher than 75% accuracy target.  
 
-<img src="Images/AlphabetSoupCharity_Accuracy_Chart.PNG" height="250">
+  <img src="images/AlphabetSoupCharity_Accuracy_Score.PNG" height="70">
+
+  
+
+  <img src="images/AlphabetSoupCharity_Accuracy_Chart.PNG" height="250">
+
+  -  My first attempt at using additional model optimization to achieve a greater than 75% accuracy score.  
+    - The following modifications were made:  Removed the feature columns "INCOME_AMT" and "SPECIAL CONSIDERATIONS".  The activation functions for both hidden layers were changed from  "relu" to "tanh", and the neurons for both hidden layers were increased from 10 to 20.    An accuracy score of  72.6% was achieved which is below the higher than 75% accuracy target.  
+
+  <img src="images/AlphabetSoupCharity_Accuracy_Score_first_attempt.PNG" height="70">
+
+  <img src="images/AlphabetSoupCharity_Accuracy_Chart_first_attempt.PNG" height="250">
+
+  
+
+  -  My second attempt at using additional model optimization to achieve a greater than 75% accuracy score.  
+    - The following modifications were made for the second attempt:  I added back one column "INCOME_AMT" (note: "SPECIAL CONSIDERATIONS" is still removed).  I changed the activation function back from "tanh" to "relu" and added one more hidden layer (three hidden layers total).   The neurons for the three hidden layers were also increased from 20 to 80.  An accuracy score of 73% was achieved which is slightly above my previous two attempts; however, lower that 75%.  
+
+  <img src="images/AlphabetSoupCharity_Accuracy_Score_second_attempt.PNG" height="70">
+
+  <img src="images/AlphabetSoupCharity_Accuracy_Chart_second_attempt.PNG" height="250">
+
+  
+
+  - My third attempt at using additional model optimization to achieve a greater than 75% accuracy score.  
+    - The following modifications were made for the third attempt:  No columns were dropped and the activation function remains at "relu".   One more hidden layer was added (now the model has four hidden layers total).   The neurons for the four hidden layers were also increased from 80 to 700.   The number of epochs was increased from 50 to 80.   An accuracy score of 73% was achieved which  was the same as my second attempt; however, lower that 75%.  
+
+  <img src="images/AlphabetSoupCharity_Accuracy_Score_third_attempt.PNG" height="70">
+
+  <img src="images/AlphabetSoupCharity_Accuracy_Chart_third_attempt.PNG" height="250">
+
+  
+
+  #### Summary
+
+  - My highest level of accuracy achieved for this model was 73% for the second and third attempts at optimization.  As additional hidden layers were added, and the number of neurons were increased, the model tended to show very modest improvements.   However, these modifications did not seem to bring the model to the desired 75% plus range.  
+  - One recommendation would be to keep the Epoch's below 100 maybe in the 50-75 range.  In my experience with this model, once the model epoch's go beyond 80 to 100 or more, the model tends to lose it's accuracy the batch scores decline.  
+  - I observed when the epochs were increased from 80 to 700,  significant processing time was required to complete this attempt at optimization.    
 
 
-## Background
 
-The non-profit foundation Alphabet Soup wants to create an algorithm to predict whether or not applicants for funding will be successful. With your knowledge of machine learning and neural networks, you’ll use the features in the provided dataset to create a binary classifier that is capable of predicting whether applicants will be successful if funded by Alphabet Soup.
-
-From Alphabet Soup’s business team, you have received a CSV containing more than 34,000 organizations that have received funding from Alphabet Soup over the years. Within this dataset are a number of columns that capture metadata about each organization, such as the following:
-
-* **EIN** and **NAME**—Identification columns
-* **APPLICATION_TYPE**—Alphabet Soup application type
-* **AFFILIATION**—Affiliated sector of industry
-* **CLASSIFICATION**—Government organization classification
-* **USE_CASE**—Use case for funding
-* **ORGANIZATION**—Organization type
-* **STATUS**—Active status
-* **INCOME_AMT**—Income classification
-* **SPECIAL_CONSIDERATIONS**—Special consideration for application
-* **ASK_AMT**—Funding amount requested
-* **IS_SUCCESSFUL**—Was the money used effectively
-
-## Instructions
-
-### Step 1: Preprocess the data
-
-Using your knowledge of Pandas and the Scikit-Learn’s `StandardScaler()`, you’ll need to preprocess the dataset in order to compile, train, and evaluate the neural network model later in Step 2
-
-Using the information we have provided in the starter code, follow the instructions to complete the preprocessing steps.
-
-1. Read in the charity_data.csv to a Pandas DataFrame, and be sure to identify the following in your dataset:
-  * What variable(s) are considered the target(s) for your model?
-  * What variable(s) are considered the feature(s) for your model?
-2. Drop the `EIN` and `NAME` columns.
-3. Determine the number of unique values for each column.
-4. For those columns that have more than 10 unique values, determine the number of data points for each unique value.
-6. Use the number of data points for each unique value to pick a cutoff point to bin "rare" categorical variables together in a new value, `Other`, and then check if the binning was successful.
-7. Use `pd.get_dummies()` to encode categorical variables
-
-### Step 2: Compile, Train, and Evaluate the Model
-
-Using your knowledge of TensorFlow, you’ll design a neural network, or deep learning model, to create a binary classification model that can predict if an Alphabet Soup–funded organization will be successful based on the features in the dataset. You’ll need to think about how many inputs there are before determining the number of neurons and layers in your model. Once you’ve completed that step, you’ll compile, train, and evaluate your binary classification model to calculate the model’s loss and accuracy.
-
-1. Continue using the jupter notebook where you’ve already performed the preprocessing steps from Step 1.
-2. Create a neural network model by assigning the number of input features and nodes for each layer using Tensorflow Keras.
-3. Create the first hidden layer and choose an appropriate activation function.
-4. If necessary, add a second hidden layer with an appropriate activation function.
-5. Create an output layer with an appropriate activation function.
-6. Check the structure of the model.
-7. Compile and train the model.
-8. Create a callback that saves the model's weights every 5 epochs.
-9. Evaluate the model using the test data to determine the loss and accuracy.
-10. Save and export your results to an HDF5 file, and name it `AlphabetSoupCharity.h5`.
-
-### Step 3: Optimize the Model
-
-Using your knowledge of TensorFlow, optimize your model in order to achieve a target predictive accuracy higher than 75%. If you can't achieve an accuracy higher than 75%, you'll need to make at least three attempts to do so.
-
-Optimize your model in order to achieve a target predictive accuracy higher than 75% by using any or all of the following:
-
-* Adjusting the input data to ensure that there are no variables or outliers that are causing confusion in the model, such as:
-  * Dropping more or fewer columns.
-  * Creating more bins for rare occurrences in columns.
-  * Increasing or decreasing the number of values for each bin.
-* Adding more neurons to a hidden layer.
-* Adding more hidden layers.
-* Using different activation functions for the hidden layers.
-* Adding or reducing the number of epochs to the training regimen.
-
-**NOTE**: You will not lose points if your model does not achieve target performance, as long as you make three attempts at optimizing the model in your jupyter notebook.
-
-1. Create a new Jupyter Notebook file and name it `AlphabetSoupCharity_Optimzation.ipynb`.
-2. Import your dependencies, and read in the `charity_data.csv` to a Pandas DataFrame.
-3. Preprocess the dataset like you did in Step 1, taking into account any modifications to optimize the model.
-4. Design a neural network model, taking into account any modifications that will optimize the model to achieve higher than 75% accuracy.
-5. Save and export your results to an HDF5 file, and name it `AlphabetSoupCharity_Optimization.h5`.
-
-### Step 4: Write a Report on the Neural Network Model
-
-For this part of the Challenge, you’ll write a report on the performance of the deep learning model you created for AlphabetSoup.
-
-The report should contain the following:
-
-1. **Overview** of the analysis: Explain the purpose of this analysis.
-
-2. **Results**: Using bulleted lists and images to support your answers, address the following questions.
-
-  * Data Preprocessing
-    * What variable(s) are considered the target(s) for your model?
-    * What variable(s) are considered to be the features for your model?
-    * What variable(s) are neither targets nor features, and should be removed from the input data?
-  * Compiling, Training, and Evaluating the Model
-    * How many neurons, layers, and activation functions did you select for your neural network model, and why?
-    * Were you able to achieve the target model performance?
-    * What steps did you take to try and increase model performance?
-
-3. **Summary**: Summarize the overall results of the deep learning model. Include a recommendation for how a different model could solve this classification problem, and explain your recommendation.
-
-- - -
-
-## Rubric
-
-[Unit 21 - Deep Learning Homework Rubric - Charity Funding Predictor](https://docs.google.com/document/d/1SLOROX0lqZwa1ms-iRbHMQr1QSsMT2k0boO9YpFBnHA/edit?usp=sharing)
-
-___
-© 2021  Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.	
