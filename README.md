@@ -53,7 +53,7 @@ The historical csv file (charity_data.csv) containing 34k organizations which ha
 
   
 
-  #### Summary
+  ### Summary
 
   - My highest level of accuracy achieved for this model was 73% for the second and third attempts at optimization.  As additional hidden layers were added, and the number of neurons were increased, the model tended to show very modest improvements.   However, these modifications did not seem to bring the model to the desired 75% plus range.  
   - One recommendation would be to keep the Epoch's below 100 maybe in the 50-75 range.  In my experience with this model, once the model epoch's go beyond 80 to 100 or more, the model tends to lose it's accuracy the batch scores decline.  
