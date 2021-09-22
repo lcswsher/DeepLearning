@@ -4,7 +4,7 @@
 
 ### Overview
 
-The purpose of this exercise is to set up and create an algorithm via a neural network model used for predicting if applicants will be successful or not if funded by Alphabet Soup.   
+The purpose of this exercise is to create an algorithm via a neural network model used for predicting if applicants will be successful or not if funded by Alphabet Soup.   
 
 A historical csv file (charity_data.csv), containing more that 34k organizations receiving funding from Alphabet Soup, was used for compiling the neural network model.  
 
