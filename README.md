@@ -4,26 +4,17 @@
 
 ### Overview
 
-<<<<<<< HEAD
 The purpose of this exercise was to create and configure a neural network algorithm model used for predicting whether applicants will be successful (or not) if funded by Alphabet Soup.  The tensor flow module was used to create, train and score the model; also, this is a classification type of problem.    
 
 The historical csv file (charity_data.csv) containing 34k organizations which have previously received funding from Alphabet Soup, was used for compiling the neural network model.   
-=======
-The purpose of this exercise was to create and configure a neural network algorithm model used for predicting if applicants will be successful (or not) if funded by Alphabet Soup.  The tensor flow module was used to create, train and score the model.     
-
-Also, the historical csv file (charity_data.csv) containing 34k organizations which have received funding from Alphabet Soup, was used for compiling the neural network model.  
->>>>>>> c13955457810011350dd5f3d855a618d48b3a5c3
 
 ### Results
 
 - #### Data Processing
 
   - The primary target in this model is to predict if the applicants will be successful if funded by Alphabet Soup.   As such, the target column is "IS_SUCCESSFUL", as it contains the "1" or "0" metadata we wish to predict.   
-<<<<<<< HEAD
   - The features in this model are essentially all of the other columns with the exception of "IS_SUCCESSFUL", "EIN" and "NAME"
   - The "EIN" and "NAME" columns in the charity_data.csv file were considered as irrelevant and are neither targets or features.  Consequently,  both were removed from the neural network model configuration.     
-
-
 
 - #### Compiling, Training, and Evaluating the Model
 
@@ -67,18 +58,4 @@ Also, the historical csv file (charity_data.csv) containing 34k organizations wh
   - My highest level of accuracy achieved for this model was 73% for the second and third attempts at optimization.  As additional hidden layers were added, and the number of neurons were increased, the model tended to show very modest improvements.   However, these modifications did not seem to bring the model to the desired 75% plus range.  
   - One recommendation would be to keep the Epoch's below 100 maybe in the 50-75 range.  In my experience with this model, once the model epoch's go beyond 80 to 100 or more, the model tends to lose it's accuracy the batch scores decline.  
   - I observed when the epochs were increased from 80 to 700,  significant processing time was required to complete this attempt at optimization.    
-
-
-=======
-  - The features in this model are essentially all other columns with the exception of "IS_SUCCESSFUL", "EIN" and "NAME"
-  - The "EIN" and "NAME" columns in the charity_data.csv file were considered as irrelevant and are neither targets or features.  Consequently,  both were removed from the neural network model configuration.     
-
-- #### Compiling, Training, and Evaluating the Model
-
-
-
-<img src="images/AlphabetSoupCharity_Accuracy_Score.PNG" height="50">
-
-<img src="images/AlphabetSoupCharity_Accuracy_Chart.PNG" height="250">
->>>>>>> c13955457810011350dd5f3d855a618d48b3a5c3
 
