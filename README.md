@@ -31,8 +31,7 @@ The historical csv file (charity_data.csv) containing 34k organizations which ha
 
   <img src="images/AlphabetSoupCharity_Accuracy_Chart.PNG" height="250">
 
-  -  My first attempt at using additional model optimization to achieve a greater than 75% accuracy score.  
-    - The following modifications were made:  Removed the feature columns "INCOME_AMT" and "SPECIAL CONSIDERATIONS".  The activation functions for both hidden layers were changed from  "relu" to "tanh", and the neurons for both hidden layers were increased from 10 to 20.    An accuracy score of  72.6% was achieved which is below the higher than 75% accuracy target.  
+  -  My first attempt at using additional model optimization to achieve a greater than 75% accuracy score. The following modifications were made:  Removed the feature columns "INCOME_AMT" and "SPECIAL CONSIDERATIONS".  The activation functions for both hidden layers were changed from  "relu" to "tanh", and the neurons for both hidden layers were increased from 10 to 20.    An accuracy score of  72.6% was achieved which is below the higher than 75% accuracy target.  
 
   <img src="images/AlphabetSoupCharity_Accuracy_Score_first_attempt.PNG" height="70">
 
@@ -40,8 +39,7 @@ The historical csv file (charity_data.csv) containing 34k organizations which ha
 
   
 
-  -  My second attempt at using additional model optimization to achieve a greater than 75% accuracy score.  
-    - The following modifications were made for the second attempt:  I added back one column "INCOME_AMT" (note: "SPECIAL CONSIDERATIONS" is still removed).  I changed the activation function back from "tanh" to "relu" and added one more hidden layer (three hidden layers total).   The neurons for the three hidden layers were also increased from 20 to 80.  An accuracy score of 73% was achieved which is slightly above my previous two attempts; however, lower that 75%.  
+  -  My second attempt at using additional model optimization to achieve a greater than 75% accuracy score.  The following modifications were made for the second attempt:  I added back one column "INCOME_AMT" (note: "SPECIAL CONSIDERATIONS" is still removed).  I changed the activation function back from "tanh" to "relu" and added one more hidden layer (three hidden layers total).   The neurons for the three hidden layers were also increased from 20 to 80.  An accuracy score of 73% was achieved which is slightly above my previous two attempts; however, lower that 75%.  
 
   
 
@@ -73,8 +71,7 @@ The historical csv file (charity_data.csv) containing 34k organizations which ha
 
   
 
-  - My third attempt at using additional model optimization to achieve a greater than 75% accuracy score.  
-    - The following modifications were made for the third attempt:  No columns were dropped and the activation function remains at "relu".   One more hidden layer was added (now the model has four hidden layers total).   The neurons for the four hidden layers were also increased from 80 to 700.   The number of epochs was increased from 50 to 80.   An accuracy score of 73% was achieved which  was the same as my second attempt; however, lower that 75%.  
+  - My third attempt at using additional model optimization to achieve a greater than 75% accuracy score.  The following modifications were made for the third attempt:  No columns were dropped and the activation function remains at "relu".   One more hidden layer was added (now the model has four hidden layers total).   The neurons for the four hidden layers were also increased from 80 to 700.   The number of epochs was increased from 50 to 80.   An accuracy score of 73% was achieved which  was the same as my second attempt; however, lower that 75%.  
 
   <img src="images/AlphabetSoupCharity_Accuracy_Score_third_attempt.PNG" height="70">
 
@@ -87,25 +84,7 @@ The historical csv file (charity_data.csv) containing 34k organizations which ha
   - My highest level of accuracy achieved for this model was 73% for the second and third attempts at optimization.  As additional hidden layers were added, and the number of neurons were increased, the model tended to show very modest improvements.   However, these modifications did not seem to bring the model to the desired 75% plus range.  
   - One recommendation would be to keep the Epoch's below 100 maybe in the 50-75 range.  In my experience with this model, once the model epoch's go beyond 80 to 100 or more, the model tends to lose it's accuracy the batch scores decline.  
   - I observed when the epochs were increased from 80 to 700,  significant processing time was required to complete this attempt at optimization.    
-
   
   
   
-  - My third attempt at using additional model optimization to achieve a greater than 75% accuracy score.  The following modifications were made for the third attempt:  No columns were dropped and the activation function remains at "relu".   One more hidden layer was added (now the model has four hidden layers total).   The neurons for the four hidden layers were also increased from 80 to 700.   The number of epochs was increased from 50 to 80.   An accuracy score of 73% was achieved which was the same as my second optimization attempt at and is still lower that 75%.  
   
-  
-  
-  <img src="images/AlphabetSoupCharity_Accuracy_Score_third_attempt.PNG" height="70">
-  
-  <img src="images/AlphabetSoupCharity_Accuracy_Chart_third_attempt.PNG" height="250">
-  
-  
-  
-  ### Summary
-  
-  - My highest level of accuracy achieved for this model was 73% for the second and third attempts at optimization.  As additional hidden layers were added, and the number of neurons were increased, the model tended to show very modest improvements.   However, these modifications did not seem to bring the model to the desired 75% plus range.  
-  - One recommendation would be to keep the Epoch's below 100 maybe in the 50-75 range.  In my experience with this model, once the model epoch's go beyond 80 to 100 or more, the model tends to lose it's accuracy and the scores decline.   Also, it does not appear that dropping additional columns has improved the model's accuracy.  
-  - Overall, to improve the models accuracy to above 75% , I believe I would continue adding additional neurons and hidden layers to see if there might be slight improvement.  Some of the scores in the third attempt at optimization reached as high as 74% -  so, I think this might an area for improving the model.   
-  - I observed when the epochs were increased from 80 to 700,  significantly more processing time was required to complete the attempt at optimization.    
-
-
